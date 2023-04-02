@@ -1,0 +1,7 @@
+strokes = [["S1", "M 5,0 L 5,30"], ["S1", "M 5,0 L 5,30"], ["S1", "M 5,0 L 5,30"], ["S1", "M 5,0 L 5,30"], ["S1", "M 5,0 L 5,30"]]
+diameter_mm = 400
+generate_tooth = false
+center_circle_radius_mm = 0.0
+outer_circles_radius_mm = 0.0
+outer_circles_margin_mm = 0.0
+vertices_per_millimeter = 1
