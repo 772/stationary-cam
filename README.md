@@ -5,7 +5,7 @@ This safe CLI generates a stationary cam as .svg.
 ## Build example from source
 
 ```
-git clone github.com/772/stationary-cam
+git clone https://github.com/772/stationary-cam
 cd stationary-cam/example
 cargo r -- example.toml
 ```
