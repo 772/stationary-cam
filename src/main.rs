@@ -49,6 +49,21 @@ fn rotate_around_center(x: f32, y: f32, angle: f32, radius: f32) -> (f32, f32) {
     )
 }
 
+/// Gives the (wdt, hgt) for ```n``` rectangles in a circle with a certain radius.
+fn size_of_rectangles_in_circle(
+    radius: f32,
+    n: usize,
+    _width_relative_to_height: f32,
+) -> (f32, f32) {
+    let a: f32 = (360.0 * (std::f32::consts::PI / 180.0)) / n as f32 / 2.0;
+    let t: f32 = 4.0 / 3.0;
+    let u: f32 = 13.0 / 9.0;
+    (
+        radius / (1.0 + t * a.tan() + u * a.tan().powf(2.0)).sqrt(),
+        (radius * a.tan()) / (1.0 + t * a.tan() + u * a.tan().powf(2.0)).sqrt(),
+    )
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     if (args.len() != 2) ^ (args.len() == 2 && (&args[1] == "--h" || &args[1] == "-h")) {
@@ -56,7 +71,6 @@ fn main() {
         std::process::exit(0);
     }
     let input_file = &args[1];
-
     let len: usize = input_file.len();
     let svg_bottom_filename: String =
         input_file.chars().take(len - 5).collect::<String>() + "_bottom.svg";
@@ -74,7 +88,6 @@ fn main() {
     let diamter = settings.diameter_mm;
     let radius_usize = settings.diameter_mm / 2;
     let radius: f32 = radius_usize as f32;
-    let a: f32 = (360.0 * (std::f32::consts::PI / 180.0)) / settings.strokes.len() as f32 / 2.0;
     let mut angle = std::f32::consts::PI / 180.0 / 180.0;
     let mut d_cam_disc = String::from("");
     let mut d_hills = String::from("");
@@ -82,10 +95,7 @@ fn main() {
     let mut stroke_names = String::from("");
     let mut stroke_names_bottom = String::from("");
     let max_width = 30.0;
-    let t: f32 = 4.0 / 3.0;
-    let u: f32 = 13.0 / 9.0;
-    let q: f32 = radius / (1.0 + t * a.tan() + u * a.tan().powf(2.0)).sqrt();
-    let p: f32 = (radius * a.tan()) / (1.0 + t * a.tan() + u * a.tan().powf(2.0)).sqrt();
+    let (q, p) = size_of_rectangles_in_circle(radius, settings.strokes.len(), 3.0);
 
     for i in 0..settings.strokes.len() {
         // Stroke names.
