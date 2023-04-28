@@ -24,6 +24,8 @@ cargo r -- example.toml
 1. n times: Select each side or two vertices and merge to last
 1. Select all objects
 1. Right click -> Join
+1. Select all faces
+1. ALT-N -> Flip
 1. File -> Export -> e.g. Wavefront (.obj) / .stl or what you wish
 
 ## License
