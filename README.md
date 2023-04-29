@@ -20,6 +20,7 @@ cargo r -- example.toml
 1. Select cam object
 1. Select all vertices and press E to move them up a bit
 1. Select tooth object
+1. ALT-N -> Flip
 1. Select all vertices and press E to move them down a bit
 1. n times: Select each side or two vertices and merge to last
 1. Select all objects
