@@ -7,8 +7,8 @@ const USAGE: &str = "
 Cam disc designer.
 
 Usage:
-  designer <filename.toml>
-  designer -h | --h
+  cargo stationary-cam <filename.toml>
+  cargo stationary-cam -h | --h
 ";
 
 #[derive(Deserialize, Serialize)]
@@ -77,15 +77,15 @@ fn main() {
     let content = std::fs::read_to_string(input_file).unwrap();
     let settings: Settings = toml::from_str(&content).unwrap();
     println!(
-        "For 3D model: Set Resolution Preview U in Blender = {}.",
-        std::f32::consts::PI * settings.diameter_mm as f32 / settings.strokes.len() as f32
-            * settings.vertices_per_millimeter as f32
+        "For 3D model: Set 'Resolution Preview U' in Blender = {}.",
+        (std::f32::consts::PI * settings.diameter_mm as f32 / settings.strokes.len() as f32
+            * settings.vertices_per_millimeter as f32)
+            .floor()
     );
     let mut svg_bottom = format!(
         "<svg style='height:{}mm;width:{}mm;'><g transform='scale(3.543307)'>",
         settings.diameter_mm, settings.diameter_mm
     );
-    let diamter = settings.diameter_mm;
     let radius_usize = settings.diameter_mm / 2;
     let radius: f32 = radius_usize as f32;
     let mut angle = std::f32::consts::PI / 180.0 / 180.0;
@@ -102,9 +102,7 @@ fn main() {
         let angle_orig = (360.0 / settings.strokes.len() as f32) * i as f32;
         let (xm, ym) = rotate_around_center(radius, radius - q + p + p, angle, radius);
         stroke_names += &format!("<text text-anchor='middle' stroke='#000' transform='translate({xm},{ym}) rotate({angle_orig})'>{name}</text>", name = settings.strokes[i][0]);
-        let mut strokes_bottom: Vec<[String; 2]> = settings.strokes.clone();
-        strokes_bottom.reverse();
-        strokes_bottom.rotate_right(1);
+        let strokes_bottom: Vec<[String; 2]> = settings.strokes.clone();
         stroke_names_bottom += &format!("<text text-anchor='middle' stroke='#000' transform='translate({xm},{ym}) rotate({angle_orig})'>{name}</text>", name = strokes_bottom[i][0]);
 
         // Border and hills.
@@ -258,13 +256,12 @@ fn main() {
         d_cam_disc += "z";
     }
 
-    svg_bottom += &format!("<path d='{d_cam_disc} z' stroke='none' fill='#888' fill-rule='evenodd' transform='scale (-1, 1) translate(-{diamter},0)' />");
+    svg_bottom +=
+        &format!("<path d='{d_cam_disc} z' stroke='none' fill='#888' fill-rule='evenodd'/>");
     //svg_bottom += &format!(
-    //    "<path d='{d_hills}' stroke='#999' fill='none' transform='scale (-1, 1) translate(-{diamter},0)' />"
+    //    "<path d='{d_hills}' stroke='#999' fill='none' />"
     //);
-    svg_bottom += &format!(
-        "<path d='{d_tooths}' fill='#fff' transform='scale (-1, 1) translate(-{diamter},0)' />"
-    );
+    svg_bottom += &format!("<path d='{d_tooths}' fill='#fff' />");
     svg_bottom += &stroke_names_bottom;
     svg_bottom += "</g></svg>";
 
