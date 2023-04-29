@@ -13,7 +13,7 @@ cargo r -- example.toml
 ## Using [Blender](https://www.blender.org) to convert the svg to 3D
 
 1. File -> Import -> Scalable Vector Graphics (.svg)
-1. Select all objectsnnn
+1. Select all objects
 1. Object Data Properties -> Resolution Preview U -> See console
 1. Right click -> Set Origin -> Geometry to Origin
 1. Right click -> Convert To -> Mesh
