@@ -25,7 +25,7 @@ cargo r -- example.toml
 1. Select all objects
 1. Right click -> Join
 1. Select all faces
-1. ALT-N -> Flip
+1. ALT-N -> Flip (caused by ```transform='scale (-1, 1)'```, TODO: Remove this and replace it with Control-M -> z to flip the object)
 1. File -> Export -> e.g. Wavefront (.obj) / .stl or what you wish
 
 ## License
