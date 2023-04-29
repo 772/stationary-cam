@@ -13,19 +13,18 @@ cargo r -- example.toml
 ## Using [Blender](https://www.blender.org) to convert the svg to 3D
 
 1. File -> Import -> Scalable Vector Graphics (.svg)
-1. Select cam object
-1. Modifer Properties -> Add Modifier -> Solidify
+1. Select all objectsnnn
 1. Object Data Properties -> Resolution Preview U -> See console
-1. Select all objects
 1. Right click -> Set Origin -> Geometry to Origin
 1. Right click -> Convert To -> Mesh
-1. Select tooth object
+1. Select cam object
 1. Select all vertices and press E to move them up a bit
+1. Select tooth object
+1. Select all vertices and press E to move them down a bit
 1. n times: Select each side or two vertices and merge to last
 1. Select all objects
+1. Control-M -> z
 1. Right click -> Join
-1. Select all faces
-1. ALT-N -> Flip (caused by ```transform='scale (-1, 1)'```, TODO: Remove this and replace it with Control-M -> z to flip the object)
 1. File -> Export -> e.g. Wavefront (.obj) / .stl or what you wish
 
 ## License
