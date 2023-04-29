@@ -7,8 +7,8 @@ const USAGE: &str = "
 Cam disc designer.
 
 Usage:
-  cargo stationary-cam <filename.toml>
-  cargo stationary-cam -h | --h
+  stationary-cam <filename.toml>
+  stationary-cam -h | --h
 ";
 
 #[derive(Deserialize, Serialize)]
