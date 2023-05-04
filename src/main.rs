@@ -255,7 +255,9 @@ fn main() {
         }
         d_cam_disc += "z";
     }
-
+    // The following line would optimize the SVG for 2D.
+    //svg_bottom +=
+    //  &format!("<path d='{d_cam_disc} z' stroke='#000' fill='#fff' fill-rule='evenodd'/>");
     svg_bottom +=
         &format!("<path d='{d_cam_disc} z' stroke='none' fill='#888' fill-rule='evenodd'/>");
     //svg_bottom += &format!(
