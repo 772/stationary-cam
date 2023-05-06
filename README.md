@@ -19,11 +19,11 @@ cargo r -- example.toml
 1. Object Data Properties -> Resolution Preview U -> See console
 1. Right click -> Set Origin -> Geometry to Origin
 1. Right click -> Convert To -> Mesh
-1. Select cam object
-1. Select all vertices and press E to move them up a bit
-1. Select tooth object
+1. Select cam object and select all vertices
+1. Press E to move them up a bit
+1. Select tooth object and select all vertices
 1. ALT-N -> Flip
-1. Select all vertices and press E to move them down a bit
+1. Press E to move them down a bit
 1. n times: Select each side or two vertices and merge to last
 1. Select all objects
 1. Control-M -> z
