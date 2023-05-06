@@ -10,6 +10,8 @@ cd stationary-cam/example
 cargo r -- example.toml
 ```
 
+![Result](example/example.png)
+
 ## Using [Blender](https://www.blender.org) to convert the svg to 3D
 
 1. File -> Import -> Scalable Vector Graphics (.svg)
