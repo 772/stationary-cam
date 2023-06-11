@@ -15,11 +15,12 @@ Usage:
 pub struct Settings {
     pub strokes: Vec<[String; 2]>,
     pub diameter_mm: usize,
-    pub generate_tooth: bool,
     pub center_circle_radius_mm: f32,
     pub outer_circles_radius_mm: f32,
     pub outer_circles_margin_mm: f32,
     pub vertices_per_millimeter: usize,
+    pub generate_tooth: bool,
+    pub display_stroke_names: bool,
 }
 
 /// Returns vertices in a 2D room that build a circle.
@@ -73,7 +74,7 @@ fn main() {
     let input_file = &args[1];
     let len: usize = input_file.len();
     let svg_bottom_filename: String =
-        input_file.chars().take(len - 5).collect::<String>() + "_bottom.svg";
+        input_file.chars().take(len - 5).collect::<String>() + ".svg";
     let content = std::fs::read_to_string(input_file).unwrap();
     let settings: Settings = toml::from_str(&content).unwrap();
     println!(
@@ -256,12 +257,14 @@ fn main() {
         d_cam_disc += "z";
     }
     svg_bottom +=
-        &format!("<path d='{d_cam_disc} z' stroke='#000' fill='#fff' fill-rule='evenodd'/>");
+        &format!("<path d='{d_cam_disc} z' stroke='none' fill='#ddd' fill-rule='evenodd'/>");
     //svg_bottom += &format!(
     //    "<path d='{d_hills}' stroke='#999' fill='none' />"
     //);
     svg_bottom += &format!("<path d='{d_tooths}' stroke='#000' fill='#fff' />");
-    svg_bottom += &stroke_names_bottom;
+    if settings.display_stroke_names {
+        svg_bottom += &stroke_names_bottom;
+    }
     svg_bottom += "</g></svg>";
 
     File::create(svg_bottom_filename)
