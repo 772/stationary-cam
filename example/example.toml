@@ -1,7 +1,8 @@
 strokes = [["S1", "M 5,0 L 5,30"], ["S2", "M 5,0 L 5,30"], ["S3", "M 5,0 L 5,30"], ["S4", "M 5,0 L 5,30"], ["S5", "M 5,0 L 5,30"], ["S6", "M 5,0 L 5,30"], ["S7", "M 5,0 L 5,30"], ["S8", "M 5,0 L 5,30"], ["S9", "M 5,0 L 5,30"], ["S10", "M 5,0 L 5,30"]]
 diameter_mm = 400
-generate_tooth = true
-center_circle_radius_mm = 0.0
-outer_circles_radius_mm = 0.0
-outer_circles_margin_mm = 0.0
+center_circle_radius_mm = 18.0
+outer_circles_radius_mm = 5.0
+outer_circles_margin_mm = 50.0
 vertices_per_millimeter = 1
+generate_tooth = false
+display_stroke_names = false
