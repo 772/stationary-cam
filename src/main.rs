@@ -20,6 +20,7 @@ pub struct Settings {
     pub outer_circles_margin_mm: f32,
     pub vertices_per_millimeter: usize,
     pub generate_tooth: bool,
+    pub generate_gaps: bool,
     pub display_stroke_names: bool,
 }
 
@@ -73,8 +74,7 @@ fn main() {
     }
     let input_file = &args[1];
     let len: usize = input_file.len();
-    let svg_bottom_filename: String =
-        input_file.chars().take(len - 5).collect::<String>() + ".svg";
+    let svg_bottom_filename: String = input_file.chars().take(len - 5).collect::<String>() + ".svg";
     let content = std::fs::read_to_string(input_file).unwrap();
     let settings: Settings = toml::from_str(&content).unwrap();
     println!(
@@ -194,6 +194,7 @@ fn main() {
         svg_bottom += &format!("<defs><linearGradient id='verlauf{i}' x1='0%' y1='0%' x2='100%' y2='0%' gradientTransform='rotate({angle_degree})'><stop offset='0%' stop-color='#fff' /><stop offset='100%' stop-color='#fff' /></linearGradient></defs>");
         angle += (360.0 * (std::f32::consts::PI / 180.0)) / settings.strokes.len() as f32;
     }
+    d_cam_disc += "z ";
 
     if settings.center_circle_radius_mm > 0.0 {
         let (circle_x, circle_y) = circle(
@@ -257,11 +258,13 @@ fn main() {
         d_cam_disc += "z";
     }
     svg_bottom +=
-        &format!("<path d='{d_cam_disc} z' stroke='none' fill='#ddd' fill-rule='evenodd'/>");
-    //svg_bottom += &format!(
-    //    "<path d='{d_hills}' stroke='#999' fill='none' />"
-    //);
-    svg_bottom += &format!("<path d='{d_tooths}' stroke='#000' fill='#fff' />");
+        &format!("<path d='{d_cam_disc}' stroke='none' fill='#ddd' fill-rule='evenodd'/>");
+    if settings.generate_gaps {
+        svg_bottom += &format!("<path d='{d_hills}' stroke='#999' fill='none' />");
+    }
+    if settings.generate_tooth {
+        svg_bottom += &format!("<path d='{d_tooths}' stroke='#000' fill='none' />");
+    }
     if settings.display_stroke_names {
         svg_bottom += &stroke_names_bottom;
     }
