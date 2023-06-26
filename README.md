@@ -1,3 +1,5 @@
+[![Crates.io](https://img.shields.io/crates/v/stationary-cam.svg)](https://crates.io/crates/stationary-cam)
+
 # stationary-cam
 
 This safe CLI generates a stationary cam as .svg.
