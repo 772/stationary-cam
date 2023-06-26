@@ -11,5 +11,5 @@ categories = ["Graphics"]
 keywords = ["cli"]
 
 [dependencies]
-toml = "0.7.3"
-serde = { version = "1.0.158", features = ["derive"] }
+toml = "0.7.5"
+serde = { version = "1.0.164", features = ["derive"] }
