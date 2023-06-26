@@ -30,6 +30,10 @@ cargo r -- example.toml
 1. Right click -> Join
 1. File -> Export -> e.g. Wavefront (.obj) / .stl or what you wish
 
+## Using [Inkscape](https://inkscape.org/) to convert the svg to DXF
+
+See [inkscape_svg_to_dxf.sh](example/inkscape_svg_to_dxf.sh).
+
 ## License
 
 Licensed under either of these:
