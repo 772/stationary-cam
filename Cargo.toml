@@ -1,6 +1,6 @@
 [package]
 name = "stationary-cam"
-version = "0.2.2"
+version = "0.2.3"
 authors = ["Armin Schäfer"]
 description = "This safe CLI generates a stationary cam as .svg."
 repository = "https://github.com/772/stationary-cam"
