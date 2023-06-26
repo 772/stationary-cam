@@ -5,4 +5,5 @@ outer_circles_radius_mm = 5.0
 outer_circles_margin_mm = 50.0
 vertices_per_millimeter = 1
 generate_tooth = false
+generate_gaps = false
 display_stroke_names = false
