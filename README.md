@@ -2,9 +2,9 @@
 
 # stationary-cam
 
-This safe CLI generates a stationary cam as .svg.
+This safe Rust CLI generates SVG templates for stationary cams.
 
-## Build example from source
+## Examples
 
 ```
 git clone https://github.com/772/stationary-cam
@@ -14,7 +14,13 @@ cargo r -- example.toml
 
 ![Result](example/example.png)
 
-## Using [Blender](https://www.blender.org) to convert the svg to 3D
+## Building the cam
+
+You can use the generated SVG template to cut the cam out of a metal plate, cardboard or any other material. Depending on the material of the cam, you might need a differnt file format.
+
+### Using [Blender](https://www.blender.org) to convert the SVG to OBJ or STL
+
+OBJ and STL files are often used for 3D printing or CNC woodworking.
 
 1. File -> Import -> Scalable Vector Graphics (.svg)
 1. Select all objects
@@ -30,11 +36,15 @@ cargo r -- example.toml
 1. Select all objects
 1. Control-M -> z
 1. Right click -> Join
-1. File -> Export -> e.g. Wavefront (.obj) / .stl or what you wish
+1. File -> Export -> e.g. Wavefront OBJ / STL etc.
 
-## Using [Inkscape](https://inkscape.org/) to convert the svg to DXF
+### Using [Inkscape](https://inkscape.org/) to convert the SVG to DXF
 
-See [inkscape_svg_to_dxf.sh](example/inkscape_svg_to_dxf.sh).
+DXF files are often used for metal laser cutting machines.
+
+```
+inkscape --export-type="dxf" example.svg
+```
 
 ## License
 
