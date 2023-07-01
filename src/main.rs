@@ -258,9 +258,9 @@ fn main() {
         d_cam_disc += "z";
     }
     svg_bottom +=
-        &format!("<path d='{d_cam_disc}' stroke='none' fill='#ddd' fill-rule='evenodd'/>");
+        &format!("<path d='{d_cam_disc}' stroke='#000' fill='#fff' fill-rule='evenodd'/>");
     if settings.generate_gaps {
-        svg_bottom += &format!("<path d='{d_hills}' stroke='#999' fill='none' />");
+        svg_bottom += &format!("<path d='{d_hills}' stroke='#000' fill='none' />");
     }
     if settings.generate_tooth {
         svg_bottom += &format!("<path d='{d_tooths}' stroke='#000' fill='none' />");
