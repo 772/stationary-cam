@@ -29,7 +29,7 @@ cargo install stationary-cam
 ```
 This will result in a SVG looking like this:
 
-![Result](example/example.png)
+![Result](example.png)
 
 ## Building the cam
 
