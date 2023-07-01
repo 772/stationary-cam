@@ -4,13 +4,31 @@
 
 This safe Rust CLI generates SVG templates for stationary cams.
 
-## Examples
+## Example
 
 ```
-git clone https://github.com/772/stationary-cam
-cd stationary-cam/example
-cargo r -- example.toml
+cargo install stationary-cam
+~/.cargo/bin/stationary-cam \
+    --filename "example" \
+    --strokes \
+        "S1=M 5,0 L 5,30" \
+        "S2=M 5,0 L 5,30" \
+        "S3=M 5,0 L 5,30" \
+        "S4=M 5,0 L 5,30" \
+        "S5=M 5,0 L 5,30" \
+        "S6=M 5,0 L 5,30" \
+        "S7=M 5,0 L 5,30" \
+        "S8=M 5,0 L 5,30" \
+        "S9=M 5,0 L 5,30" \
+        "S10=M 5,0 L 5,30" \
+    --diameter-mm 460 \
+    --center-circle-radius-mm 18.0 \
+    --outer-circles-radius-mm 5.0 \
+    --outer-circles-margin-mm 50.0 \
+    --vertices-per-millimeter 1 \
+    --generate-stroke-names
 ```
+This will result in a SVG looking like this:
 
 ![Result](example/example.png)
 
