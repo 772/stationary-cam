@@ -16,7 +16,7 @@ cargo r -- example.toml
 
 ## Building the cam
 
-You can use the generated SVG template to cut the cam out of a metal plate, cardboard or any other material. Depending on the material of the cam, you might need a differnt file format.
+You can use the generated SVG template to cut the cam out of a metal plate, cardboard or any other material. Depending on the material of the cam, you might need a different file format.
 
 ### Using [Blender](https://www.blender.org) to convert the SVG to OBJ or STL
 
