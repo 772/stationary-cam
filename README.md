@@ -18,6 +18,11 @@ cargo r -- example.toml
 
 You can use the generated SVG template to cut the cam out of a metal plate, cardboard or any other material. Depending on the material of the cam, you might need a different file format.
 
+### Using [GIMP](https://gimp.org) to convert the SVG to PNG
+
+1. When opening the SVG with GIMP, you can select the size of the picture.
+1. File -> Export As... -> example.png
+
 ### Using [Blender](https://www.blender.org) to convert the SVG to OBJ or STL
 
 OBJ and STL files are often used for 3D printing or CNC woodworking.
