@@ -25,8 +25,7 @@ cargo install stationary-cam
     --center-circle-radius-mm 18.0 \
     --outer-circles-radius-mm 5.0 \
     --outer-circles-margin-mm 50.0 \
-    --vertices-per-millimeter 1 \
-    --generate-stroke-names
+    --vertices-per-millimeter 1
 ```
 This will result in a SVG looking like this:
 
