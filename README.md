@@ -1,6 +1,7 @@
-[![Crates.io](https://img.shields.io/crates/v/stationary-cam.svg)](https://crates.io/crates/stationary-cam)
-
 # stationary-cam
+
+[![License: MIT/Apache](https://img.shields.io/badge/License-MIT%20or%20Apache2-blue.svg)](https://opensource.org/licenses/MIT)
+[![Crates.io](https://img.shields.io/crates/v/stationary-cam.svg)](https://crates.io/crates/stationary-cam)
 
 This safe Rust CLI generates SVG templates for stationary cams.
 
@@ -76,3 +77,7 @@ Licensed under either of these:
    https://www.apache.org/licenses/LICENSE-2.0)
  * MIT license ([LICENSE-MIT](LICENSE-MIT) or
    https://opensource.org/licenses/MIT)
+
+## Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
