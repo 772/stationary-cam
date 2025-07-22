@@ -1,7 +1,7 @@
 [![License: MIT/Apache](https://img.shields.io/badge/License-MIT%20or%20Apache2-blue.svg)](https://opensource.org/licenses/MIT)
 [![Crate](https://img.shields.io/crates/v/stationary-cam.svg)](https://crates.io/crates/stationary-cam)
 
-# What is stationary-cam?
+## What is stationary-cam?
 
 This safe Rust CLI generates SVG templates for stationary cams.
 
