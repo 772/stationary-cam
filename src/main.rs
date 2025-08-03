@@ -126,9 +126,15 @@ fn main() {
         // Stroke names.
         let angle_orig = (360.0 / strokes_pair.len() as f32) * i as f32;
         let (xm, ym) = rotate_around_center(radius, radius - q + p + p, angle, radius);
-        stroke_names += &format!("<text text-anchor='middle' stroke='#000' transform='translate({xm},{ym}) rotate({angle_orig})'>{name}</text>", name = strokes_pair[i][0]);
+        stroke_names += &format!(
+            "<text text-anchor='middle' stroke='#000' transform='translate({xm},{ym}) rotate({angle_orig})'>{name}</text>",
+            name = strokes_pair[i][0]
+        );
         let strokes_bottom: Vec<[String; 2]> = strokes_pair.clone();
-        stroke_names_bottom += &format!("<text text-anchor='middle' stroke='#000' transform='translate({xm},{ym}) rotate({angle_orig})'>{name}</text>", name = strokes_bottom[i][0]);
+        stroke_names_bottom += &format!(
+            "<text text-anchor='middle' stroke='#000' transform='translate({xm},{ym}) rotate({angle_orig})'>{name}</text>",
+            name = strokes_bottom[i][0]
+        );
 
         // Border and hills.
         let mut stroke: String = strokes_pair[i][1].to_owned();
@@ -215,7 +221,9 @@ fn main() {
         }
         d_cam_disc += &neu;
         let angle_degree = 360.0 - angle / (2.0 * std::f32::consts::PI) * 360.0;
-        svg_bottom += &format!("<defs><linearGradient id='verlauf{i}' x1='0%' y1='0%' x2='100%' y2='0%' gradientTransform='rotate({angle_degree})'><stop offset='0%' stop-color='#fff' /><stop offset='100%' stop-color='#fff' /></linearGradient></defs>");
+        svg_bottom += &format!(
+            "<defs><linearGradient id='verlauf{i}' x1='0%' y1='0%' x2='100%' y2='0%' gradientTransform='rotate({angle_degree})'><stop offset='0%' stop-color='#fff' /><stop offset='100%' stop-color='#fff' /></linearGradient></defs>"
+        );
         angle += (360.0 * (std::f32::consts::PI / 180.0)) / strokes_pair.len() as f32;
     }
     d_cam_disc += "z ";
